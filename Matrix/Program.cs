@@ -11,6 +11,102 @@ namespace Matrix
     {
         static void Main(string[] args)
         {
+
+            #region Matrix[2x2]
+            Matrix22 MatrixA = new Matrix22();
+            
+            MatrixA.elements[0, 0] = 1;
+            MatrixA.elements[0, 1] = 2;
+            MatrixA.elements[1, 0] = 1;
+            MatrixA.elements[1, 1] = 3;
+
+            Matrix22 MatrixB = new Matrix22();
+
+            MatrixB.elements[0, 0] = 1;
+            MatrixB.elements[0, 1] = 2;
+            MatrixB.elements[1, 0] = 1;
+            MatrixB.elements[1, 1] = 3;
+
+            MatrixA.range = 1; MatrixB.range = 1;
+            #endregion
+
+            #region Matrix[3x3]
+            Matrix22 MatrixA3 = new Matrix22();
+
+            MatrixA3.elements3[0, 0] = 1;
+            MatrixA3.elements3[0, 1] = 2;
+            MatrixA3.elements3[0, 2] = 3;
+            MatrixA3.elements3[1, 0] = 1;
+            MatrixA3.elements3[1, 1] = 2;
+            MatrixA3.elements3[1, 2] = 3;
+            MatrixA3.elements3[2, 0] = 1;
+            MatrixA3.elements3[2, 1] = 2;
+            MatrixA3.elements3[2, 2] = 3;
+
+            Matrix22 MatrixB3 = new Matrix22();
+
+            MatrixB3.elements3[0, 0] = 1;
+            MatrixB3.elements3[0, 1] = 2;
+            MatrixB3.elements3[0, 2] = 3;
+            MatrixB3.elements3[1, 0] = 1;
+            MatrixB3.elements3[1, 1] = 2;
+            MatrixB3.elements3[1, 2] = 3;
+            MatrixB3.elements3[2, 0] = 1;
+            MatrixB3.elements3[2, 1] = 2;
+            MatrixB3.elements3[2, 2] = 3;
+
+            MatrixA3.range = 2; MatrixB3.range = 2;
+            #endregion
+
+            Console.WriteLine("1: 2x2"); Console.WriteLine("2: 3x3");
+            int range = Convert.ToInt32(Console.ReadLine());
+            
+            Console.Clear();
+            if (range == 1)
+            {
+                //Addition
+                Console.WriteLine("Addition;");
+                Matrix22 MatrixAddition = MatrixA.Add(MatrixB);
+                Draw2x2Matrix(MatrixAddition.elements);
+                Console.WriteLine();
+
+                //Multiplication
+
+                Console.WriteLine("Multiplication;");
+                Matrix22 MatrixMultiplication = MatrixA.Multiply(MatrixB);
+                Draw2x2Matrix(MatrixMultiplication.elements);
+                Console.WriteLine();
+
+                //RotationMatrix
+                Console.WriteLine("RotationMatrix;");
+                Matrix22 MatrixRadiate = MatrixA.Radiate();
+                Draw2x2Matrix(MatrixRadiate.elements);
+                Console.WriteLine();
+            }
+            if (range == 2)
+            {
+                //Addition
+                Console.WriteLine("Addition;");
+                Matrix22 MatrixAddition = MatrixA3.Add(MatrixB3);
+                Draw3x3ResultMatrix(MatrixAddition.elements3);
+                Console.WriteLine();
+
+                //Multiplication
+
+                Console.WriteLine("Multiplication;");
+                Matrix22 MatrixMultiplication = MatrixA3.Multiply(MatrixB3);
+                Draw3x3ResultMatrix(MatrixMultiplication.elements3);
+                Console.WriteLine();
+
+                //RotationMatrix
+                Console.WriteLine("RotationMatrix;");
+                Matrix22 MatrixRadiate = MatrixA3.Radiate();
+                Draw3x3ResultMatrix(MatrixRadiate.elements3);
+                Console.WriteLine();
+            }
+
+
+            #region Instruktioner
             /*
              * Där finns tester tillgängliga genom att skriva
              * MatrixChecker.CheckAddition
@@ -48,7 +144,7 @@ namespace Matrix
 
 
             // Byt ut detta anropet med dina matrisvärden, så kommer programmet att rita ut dem istället :)
-            Draw2x2Matrix(1.01f, 0.00f, 0.00f, 1);
+            #endregion
 
 
 

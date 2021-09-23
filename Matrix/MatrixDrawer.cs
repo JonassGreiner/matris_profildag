@@ -8,13 +8,6 @@ namespace Matrix
 {
     partial class Program
     {
-        /// <summary>
-        /// Ritar ut matrisen på den nuvarande platsen där markören är
-        /// </summary>
-        /// <param name="m00">Det första elementet (rad 1, kolumn 1)</param>
-        /// <param name="m01">Det andra elementet (rad 1, kolumn 2)</param>
-        /// <param name="m10">Det tredje elementet (rad 2, kolumn 1)</param>
-        /// <param name="m11">Det fjärde elementet (rad 2, kolumn 2)</param>
         public static void Draw2x2Matrix(float m00, float m01, float m10, float m11)
         {
             const int VALUE_LENGTH = 4;
@@ -60,9 +53,45 @@ namespace Matrix
             Console.Write("┘");
         }
 
+        public static void Draw3x3Matrix(float m00, float m01, float m02, float m10, float m11, float m12, float m20, float m21, float m22)
+        {
+
+            const string FORMAT = "{0:0.##}";
+
+
+            Console.Write(string.Format("{0,-4}  ", string.Format(FORMAT, m00)));
+            Console.Write(string.Format("{0,4}", string.Format(FORMAT, m01)));
+            Console.Write(string.Format("{0,12}", string.Format(FORMAT, m02)));
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+
+            Console.Write(string.Format("{0,-4}  ", string.Format(FORMAT, m10)));
+            Console.Write(string.Format("{0,4}", string.Format(FORMAT, m11)));
+            Console.Write(string.Format("{0,12}", string.Format(FORMAT, m12)));
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.Write(string.Format("{0,-4}  ", string.Format(FORMAT, m20)));
+            Console.Write(string.Format("{0,4}", string.Format(FORMAT, m21)));
+            Console.Write(string.Format("{0,12}", string.Format(FORMAT, m22)));
+        }
+
+
+
+
         public static void Draw2x2Matrix(float[,] matrix)
         {
             Draw2x2Matrix(matrix[0, 0], matrix[0, 1], matrix[1, 0], matrix[1, 1]);
+        }
+
+        public static void Draw3x3ResultMatrix(float[,] matrix)
+        {
+            Draw3x3Matrix(matrix[0, 0], matrix[0, 1], matrix[0, 2],
+                matrix[1, 0], matrix[1, 1], matrix[1, 2],
+                matrix[2, 0], matrix[2, 1], matrix[2, 2]);
         }
     }
 }
